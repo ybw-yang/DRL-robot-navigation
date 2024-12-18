@@ -1,0 +1,36 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/leoyang/navigation_ws/install/voice_msgs/include/**",
+        "/home/leoyang/navigation_ws/install/pp_msgs/include/**",
+        "/home/leoyang/navigation_ws/install/octomap_msgs/include/**",
+        "/home/leoyang/navigation_ws/install/navi_multi_goals_pub_rviz_plugin/include/**",
+        "/home/leoyang/navigation_ws/install/my_traversability_estimation_filters/include/**",
+        "/home/leoyang/navigation_ws/install/motion_msgs/include/**",
+        "/home/leoyang/navigation_ws/install/ipa_building_msgs/include/**",
+        "/home/leoyang/navigation_ws/install/head_msgs/include/**",
+        "/home/leoyang/navigation_ws/install/fisheye_msgs/include/**",
+        "/home/leoyang/navigation_ws/install/eame_diagnostic_msgs/include/**",
+        "/home/leoyang/navigation_ws/install/common_msgs/include/**",
+        "/home/leoyang/navigation_ws/install/cartographer_ros_msgs/include/**",
+        "/home/leoyang/navigation_ws/install/apriltag_msgs/include/**",
+        "/home/leoyang/navigation_ws/install/app_msgs/include/**",
+        "/home/leoyang/navigation_ws/install/ai_msgs/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/leoyang/DRL_robot_navigation_ros2/src/velodyne_simulator/velodyne_gazebo_plugins/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

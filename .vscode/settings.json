@@ -1,0 +1,36 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/leoyang/navigation_ws/install/voice_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/pp_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/octomap_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/motion_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/ipa_building_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/head_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/fisheye_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/eame_diagnostic_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/common_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/cartographer_ros_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/apriltag_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/app_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/ai_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/leoyang/navigation_ws/install/voice_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/pp_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/octomap_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/motion_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/ipa_building_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/head_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/fisheye_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/eame_diagnostic_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/common_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/cartographer_ros_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/apriltag_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/app_msgs/local/lib/python3.10/dist-packages",
+        "/home/leoyang/navigation_ws/install/ai_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
