@@ -19,7 +19,7 @@ from visualization_msgs.msg import MarkerArray
 
 GOAL_REACHED_DIST = 0.3
 COLLISION_DIST = 0.35
-TIME_DELTA = 0.1
+TIME_DELTA = 0.02
 
 
 # Check if the random goal position is located on an obstacle and do not accept it if it is
