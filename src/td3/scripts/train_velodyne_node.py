@@ -793,8 +793,8 @@ if __name__ == '__main__':
                             evaluate(network=network, epoch=epoch, eval_episodes=eval_ep)
                         )
 
-                        network.save(file_name, directory= save_dir + "/pytorch_models")
-                        np.save(save_dir+'/results/' + (file_name), evaluations)
+                        network.save(file_name, directory= save_dir + '/pytorch_models')
+                        np.save(save_dir+'/results/' + file_name, evaluations)
                         epoch += 1
 
                     state = env.reset()

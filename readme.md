@@ -6,12 +6,8 @@ colcon build
 
 ## 运行
 ```sh
-cd <work_space>/src/td3/scripts
 ros2 launch td3 training_simulation.launch.py 
 ```
-
-## 运行结果
-```sh
-cd ~/DRL-robot-navigation/td3
-tensorboard --logdir scripts/runs
-```
+注意：
+训练结果存储于 install/td3/share/td3/scripts/pytorch_models中
+训练过程数据存储于 install/td3/share/td3/scripts/runs中

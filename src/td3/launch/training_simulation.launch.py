@@ -24,11 +24,11 @@ def generate_launch_description():
             launch_arguments={'world': world}.items(),
         ),
 
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                os.path.join(pkg_gazebo_ros, 'launch', 'gzclient.launch.py')
-            ),
-        ),
+        # IncludeLaunchDescription(
+        #     PythonLaunchDescriptionSource(
+        #         os.path.join(pkg_gazebo_ros, 'launch', 'gzclient.launch.py')
+        #     ),
+        # ),
 
         Node(package='td3',
              executable='train_velodyne_node.py',
