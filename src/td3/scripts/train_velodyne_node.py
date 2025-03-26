@@ -134,7 +134,7 @@ class td3(object):
         self.critic_optimizer = torch.optim.Adam(self.critic.parameters())
 
         self.max_action = max_action
-        self.writer = SummaryWriter(log_dir="./DRL_robot_navigation_ros2/src/td3/scripts/runs")
+        self.writer = SummaryWriter(log_dir=os.path.dirname(os.path.realpath(__file__)) + "/runs")
         # os.path.dirname(os.path.realpath(__file__)) + "/runs"
         self.iter_count = 0
 
