@@ -15,6 +15,8 @@ import random
 
 import point_cloud2 as pc2
 from gazebo_msgs.msg import ModelState
+from gazebo_msgs.srv import SetModelState
+from ament_index_python.packages import get_package_share_directory
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import PointCloud2
@@ -131,8 +133,8 @@ class GazeboEnv(Node):
 
         # Set up the ROS publishers and subscribers
         self.vel_pub = self.create_publisher(Twist, "/cmd_vel", 1)
-        self.set_state = self.create_publisher(ModelState, "gazebo/set_model_state", 10)
 
+        self.set_state = self.create_client(SetModelState, "gazebo/set_model_state")
         self.unpause = self.create_client(Empty, "/unpause_physics")
         self.pause = self.create_client(Empty, "/pause_physics")
         self.reset_proxy = self.create_client(Empty, "/reset_world")
@@ -259,7 +261,11 @@ class GazeboEnv(Node):
         object_state.pose.orientation.y = quaternion.y
         object_state.pose.orientation.z = quaternion.z
         object_state.pose.orientation.w = quaternion.w
-        self.set_state.publish(object_state)
+        set_model_request = SetModelState.Request()
+        set_model_request.model_state = object_state
+        while not self.set_state.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('reset : service not available, waiting again...')
+        self.set_state.call_async(set_model_request)
 
         self.odom_x = object_state.pose.position.x
         self.odom_y = object_state.pose.position.y
@@ -362,8 +368,9 @@ class GazeboEnv(Node):
             box_state.pose.orientation.y = 0.0
             box_state.pose.orientation.z = 0.0
             box_state.pose.orientation.w = 1.0
-            self.set_state.publish(box_state)
-
+            set_model_request = SetModelState.Request()
+            set_model_request.model_state = box_state
+            self.set_state.call_async(set_model_request)
     def publish_markers(self, action):
         # Publish visual data in Rviz
         markerArray = MarkerArray()
@@ -515,10 +522,12 @@ if __name__ == '__main__':
     state_dim = environment_dim + robot_dim
     action_dim = 2
 
+    save_dir = get_package_share_directory('td3') + '/scripts'
+
     # Create the network
     network = td3(state_dim, action_dim)
     try:
-        network.load(file_name, "./DRL_robot_navigation_ros2/src/td3/scripts/pytorch_models")
+        network.load(file_name, save_dir+'/pytorch_models')
     except:
         raise ValueError("Could not load the stored model parameters")
 

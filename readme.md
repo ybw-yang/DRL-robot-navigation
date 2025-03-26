@@ -9,3 +9,9 @@ colcon build
 cd <work_space>/src/td3/scripts
 ros2 launch td3 training_simulation.launch.py 
 ```
+
+## 运行结果
+```sh
+cd ~/DRL-robot-navigation/td3
+tensorboard --logdir scripts/runs
+```

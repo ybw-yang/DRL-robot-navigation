@@ -22,6 +22,7 @@ import random
 import point_cloud2 as pc2
 from gazebo_msgs.msg import ModelState
 from gazebo_msgs.srv import SetModelState
+from ament_index_python.packages import get_package_share_directory
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import PointCloud2
@@ -714,14 +715,10 @@ if __name__ == '__main__':
     buffer_size = 1e6  # Maximum size of the buffer
     file_name = "td3_velodyne"  # name of the file to store the policy
     save_model = True  # Weather to save the model or not
-    load_model = False  # Weather to load a stored model
+    load_model = True  # Weather to load a stored model
     random_near_obstacle = True  # To take random actions near obstacles or not
 
-    # Create the network storage folders
-    if not os.path.exists("./results"):
-        os.makedirs("./results")
-    if save_model and not os.path.exists("./pytorch_models"):
-        os.makedirs("./pytorch_models")
+    save_dir = get_package_share_directory('td3') + '/scripts'
 
     # Create the training environment
     environment_dim = 20
@@ -740,7 +737,7 @@ if __name__ == '__main__':
     if load_model:
         try:
             print("-----------------Will load existing model.")
-            network.load(file_name, "./pytorch_models")
+            network.load(file_name, save_dir+'/pytorch_models')
         except:
             print("-----------------Could not load the stored model parameters, initializing training with random parameters")
 
@@ -796,8 +793,8 @@ if __name__ == '__main__':
                             evaluate(network=network, epoch=epoch, eval_episodes=eval_ep)
                         )
 
-                        network.save(file_name, directory="./DRL_robot_navigation_ros2/src/td3/scripts/pytorch_models")
-                        np.save("./DRL_robot_navigation_ros2/src/td3/scripts/results/%s" % (file_name), evaluations)
+                        network.save(file_name, directory= save_dir + "/pytorch_models")
+                        np.save(save_dir+'/results/' + (file_name), evaluations)
                         epoch += 1
 
                     state = env.reset()
