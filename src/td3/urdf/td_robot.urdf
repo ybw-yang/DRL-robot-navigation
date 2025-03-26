@@ -511,4 +511,8 @@
       </geometry>
     </visual>
   </link>
+  <gazebo>
+    <plugin name="gazebo_ros_factory_plugin" filename="libgazebo_ros_factory.so"/>
+    <plugin name="gazebo_ros_init" filename="libgazebo_ros_init.so"/>
+  </gazebo>
 </robot>
